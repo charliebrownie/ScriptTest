@@ -15,25 +15,27 @@ public class Test: MonoBehaviour{
         for (int n=4; n>=0; n--){
             
                Debug. Log(array[n]);
-        }
+    
+		}
+		Boss lastboss=new Boss();
+		
+		for (int i=1; i<=11; i++){
+			lastboss.Magic(5);
+			}
     }
     }
     
-    public class Boss{
+public class Boss{
     public int mp = 53;
     public void Magic(int damage){
-        if (mp>0){
-        Debug.Log("魔法攻撃をした。残りMPは"mp-=damage);
+        if (mp>=damage){
+        	mp-=damage;
+
+        Debug.Log("魔法攻撃をした。残りMPは"+mp);
         } else {
             Debug.Log("MPが足りないため魔法が使えない。");
         }
     }
     
-    void Start(){
-        Boss lastboss=new Boss();
-        lastboss.Magic();
-        }
     
-    void Update(){
-    }    
 }
